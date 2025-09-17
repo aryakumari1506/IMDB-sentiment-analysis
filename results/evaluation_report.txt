@@ -1,0 +1,117 @@
+SENTIMENT ANALYSIS MODEL EVALUATION REPORT
+==================================================
+
+SUMMARY OF ALL MODELS:
+-------------------------
+                  Model  Accuracy  Precision   Recall  F1-Score  AUC-ROC
+    Logistic Regression  0.885449   0.877086 0.897529  0.887190 0.955418
+Multinomial Naive Bayes  0.853282   0.843811 0.868395  0.855926 0.931975
+             Linear SVM  0.885046   0.875808 0.898332  0.886927 0.955562
+          Random Forest  0.847030   0.848229 0.846695  0.847461 0.925120
+
+BEST PERFORMING MODEL (by F1-Score): Logistic Regression
+
+DETAILED RESULTS FOR LOGISTIC REGRESSION:
+---------------------------------------
+Accuracy:  0.8854
+Precision: 0.8771
+Recall:    0.8975
+F1-Score:  0.8872
+AUC-ROC:   0.9554
+
+Confusion Matrix:
+                Predicted
+              Neg    Pos
+Actual  Neg   4314    626
+        Pos   510    4467
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.87      0.88      4940
+           1       0.88      0.90      0.89      4977
+
+    accuracy                           0.89      9917
+   macro avg       0.89      0.89      0.89      9917
+weighted avg       0.89      0.89      0.89      9917
+
+--------------------------------------------------
+
+DETAILED RESULTS FOR MULTINOMIAL NAIVE BAYES:
+-------------------------------------------
+Accuracy:  0.8533
+Precision: 0.8438
+Recall:    0.8684
+F1-Score:  0.8559
+AUC-ROC:   0.9320
+
+Confusion Matrix:
+                Predicted
+              Neg    Pos
+Actual  Neg   4140    800
+        Pos   655    4322
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.86      0.84      0.85      4940
+           1       0.84      0.87      0.86      4977
+
+    accuracy                           0.85      9917
+   macro avg       0.85      0.85      0.85      9917
+weighted avg       0.85      0.85      0.85      9917
+
+--------------------------------------------------
+
+DETAILED RESULTS FOR LINEAR SVM:
+------------------------------
+Accuracy:  0.8850
+Precision: 0.8758
+Recall:    0.8983
+F1-Score:  0.8869
+AUC-ROC:   0.9556
+
+Confusion Matrix:
+                Predicted
+              Neg    Pos
+Actual  Neg   4306    634
+        Pos   506    4471
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.89      0.87      0.88      4940
+           1       0.88      0.90      0.89      4977
+
+    accuracy                           0.89      9917
+   macro avg       0.89      0.88      0.89      9917
+weighted avg       0.89      0.89      0.89      9917
+
+--------------------------------------------------
+
+DETAILED RESULTS FOR RANDOM FOREST:
+---------------------------------
+Accuracy:  0.8470
+Precision: 0.8482
+Recall:    0.8467
+F1-Score:  0.8475
+AUC-ROC:   0.9251
+
+Confusion Matrix:
+                Predicted
+              Neg    Pos
+Actual  Neg   4186    754
+        Pos   763    4214
+
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.85      0.85      0.85      4940
+           1       0.85      0.85      0.85      4977
+
+    accuracy                           0.85      9917
+   macro avg       0.85      0.85      0.85      9917
+weighted avg       0.85      0.85      0.85      9917
+
+--------------------------------------------------
+
