@@ -1,8 +1,4 @@
 """
-Main Script for Sentiment Analysis Project
-==========================================
-
-This script orchestrates the complete sentiment analysis pipeline:
 1. Data preprocessing
 2. Feature extraction
 3. Model training
@@ -17,7 +13,6 @@ import joblib
 import pandas as pd
 from datetime import datetime
 
-# Add src directory to path
 sys.path.append('src')
 
 from data_preprocessing import TextPreprocessor
@@ -45,7 +40,6 @@ def run_complete_pipeline(data_path=r"data\raw\IMDB Dataset.csv", save_results=T
     print("SENTIMENT ANALYSIS PROJECT PIPELINE")
     print("="*60)
     
-    # Create directories
     create_directories()
     
     # Step 1: Data Preprocessing
@@ -77,16 +71,13 @@ def run_complete_pipeline(data_path=r"data\raw\IMDB Dataset.csv", save_results=T
     
     trainer = SentimentModelTrainer()
     
-    # Quick comparison first
     print("\nQuick Model Comparison:")
     from model_training import quick_model_comparison
     quick_results = quick_model_comparison(X_train, X_test, y_train, y_test)
     
-    # Detailed training with hyperparameter tuning
     print("\nDetailed Training with Hyperparameter Tuning:")
     trained_models = trainer.hyperparameter_tuning(X_train, y_train, cv=5)
     
-    # Cross-validation
     cv_results = trainer.cross_validate_models(X_train, y_train, cv=5)
     
     # Select best model
@@ -114,13 +105,11 @@ def run_complete_pipeline(data_path=r"data\raw\IMDB Dataset.csv", save_results=T
     
     visualizer = SentimentVisualizer()
     
-    # Comprehensive visualization for best model
     visualizer.create_comprehensive_visualization(
         df['processed_review'], df['sentiment'],
         extractor.vectorizer, best_model, best_model_name
     )
     
-    # Model comparison dashboard
     create_model_comparison_dashboard(evaluation_results, y_test)
     
     # Step 6: Save Best Model
@@ -128,11 +117,9 @@ def run_complete_pipeline(data_path=r"data\raw\IMDB Dataset.csv", save_results=T
     print("-" * 30)
     
     if save_results:
-        # Save the best model
         model_filename = f'models/best_model_{best_model_name.lower().replace(" ", "_")}.pkl'
         trainer.save_model(best_model, model_filename, best_model_name)
         
-        # Save model metadata
         metadata = {
             'model_name': best_model_name,
             'model_file': model_filename,
@@ -296,4 +283,5 @@ if __name__ == "__main__":
         
         print("\n" + "="*60)
         print("PIPELINE COMPLETED SUCCESSFULLY!")
+
         print("="*60)
